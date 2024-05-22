@@ -6,7 +6,7 @@
  * 
  * @example
  * ```js
- * import { apply, translitMap } from 'translit-js';
+ * import { apply, translitMap } from 'translit';
  * 
  * const result = apply('дӏахьаьдира');
  * console.log(result); // 'djaẋädira'
