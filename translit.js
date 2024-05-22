@@ -1,7 +1,18 @@
 /**
- * @module translit-js
  * This module provides a transliteration mapping and a function to apply transliteration
  * based on a predefined mapping from one script to another.
+ * 
+ * @module translit
+ * 
+ * @example
+ * ```js
+ * import { apply, translitMap } from 'translit-js';
+ * 
+ * const result = apply('дӏахьаьдира');
+ * console.log(result); // 'djaẋädira'
+ * 
+ * console.log(translitMap);
+ * ```
  */
 
 /**
@@ -9,7 +20,7 @@
  * The keys are the original characters, and the values are the corresponding transliterated characters.
  * @constant {Object.<string, string>}
  */
-const translitMap = {
+export const translitMap = {
   'а': 'a', 'аь': 'ä', 'б': 'b', 'в': 'v', 'г': 'g', 'гӏ': 'ġ', 'ц': 'c', 'цӏ': 'ċ', 'д': 'd',
   'е': 'e', 'ё': 'ö', 'ж': 'ƶ', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'кх': 'q', 'къ': 'q̇',
   'кӏ': 'k̇', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'оь': 'ö', 'п': 'p', 'пӏ': 'ṗ', 'р': 'r',
@@ -20,13 +31,17 @@ const translitMap = {
 
 /**
  * Applies transliteration to a given word using the predefined transliteration mapping.
+ * 
  * @param {string} word - The word to be transliterated.
  * @returns {string} - The transliterated word.
+ * 
  * @example
- * transliterate('дӏахьаьдира');
- * // returns 'djaẋädira'
+ * ```js
+ * const result = apply('дӏахьаьдира');
+ * console.log(result); // prints 'djaẋädira'
+ * ```
  */
-function apply(word) {
+export function apply(word) {
   const w = word.toLowerCase();
   let result = '';
   let i = 0;
@@ -75,5 +90,3 @@ function apply(word) {
   }
   return result;
 }
-
-export { transliterate, translitMap };
