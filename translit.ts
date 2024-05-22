@@ -20,7 +20,7 @@
  * The keys are the original characters, and the values are the corresponding transliterated characters.
  * @constant {Object.<string, string>}
  */
-export const translitMap = {
+export const translitMap: { [key: string]: string } = {
   'а': 'a', 'аь': 'ä', 'б': 'b', 'в': 'v', 'г': 'g', 'гӏ': 'ġ', 'ц': 'c', 'цӏ': 'ċ', 'д': 'd',
   'е': 'e', 'ё': 'ö', 'ж': 'ƶ', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'кх': 'q', 'къ': 'q̇',
   'кӏ': 'k̇', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'оь': 'ö', 'п': 'p', 'пӏ': 'ṗ', 'р': 'r',
@@ -41,12 +41,12 @@ export const translitMap = {
  * console.log(result); // prints 'djaẋädira'
  * ```
  */
-export function apply(word) {
-  const w = word.toLowerCase();
-  let result = '';
-  let i = 0;
+export function apply(word: string): string {
+  const w: string = word.toLowerCase();
+  let result: string = '';
+  let i: number = 0;
   while (i < w.length) {
-    let match = null;
+    let match: string | null = null;
     for (let key of [
       w.substring(i, i + 3),
       w.substring(i, i + 2),
