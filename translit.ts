@@ -6,7 +6,7 @@
  * 
  * @example
  * ```js
- * import { apply, translitMap } from 'translit';
+ * import { apply, translitMap } from "@ce/transliteration";
  * 
  * const result = apply('дӏахьаьдира');
  * console.log(result); // 'djaẋädira'
