@@ -88,6 +88,11 @@ describe('apply', () => {
     const expected = 'q̇egina Q̇egina q̇egina Q̇egina q̇Egina Q̇Egina q̇Egina Q̇Egina Q̇EGINA Q̇egina';
     expect(apply(text)).toBe(expected);
   });
+  it('should transliterate a text correctly', () => {
+    const text = "еара еАра еарА еАрА ЕАра ЕАрА ЕАРА Еара";
+    const expected = 'yeara yeAra yearA yeArA YEAra YEArA YEARA Yeara';
+    expect(apply(text)).toBe(expected);
+  });
 
   it('should replace standalone Cyrillic "а" with "ə"', () => {
     expect(apply('дӏахь а доьгӏна')).toBe('djaẋ ə döġna');

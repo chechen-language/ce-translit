@@ -116,12 +116,12 @@ export function applyToWord(word: string): string {
           }
         } else if (key === 'е' || key === 'Е') {
           if (i === 0) {
-            match = key === 'е' ? 'ye' : 'Ye'; // 'е' at the start of the word
+            match = key === 'е' ? 'ye' : (nextLetter && nextLetter.toUpperCase() === nextLetter ? 'YE' : 'Ye'); // 'е' at the start of the word
           } else if (i > 0) {
             const preConsonant = i > 1 ? word.substring(i - 2, i).toLowerCase() : '';
             if ((preLetter === 'ъ') && (i < 2 || preConsonant !== 'къ')) {
               // 'е' following 'ъ' that does not follow 'къ'
-              match = key === 'е' ? 'ye' : (nextLetter.toUpperCase() === nextLetter ? 'YE' : 'Ye');
+              match = key === 'е' ? 'ye' : (nextLetter && nextLetter.toUpperCase() === nextLetter ? 'YE' : 'Ye');
             } else {
               match = translitMap[key]; // Regular transliteration for 'е'
             }
