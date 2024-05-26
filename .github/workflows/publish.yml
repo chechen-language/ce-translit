@@ -28,5 +28,8 @@ jobs:
       - name: Run tests
         run: jest --coverage
 
+      - name: Reset repository
+        run: git reset --hard HEAD
+
       - name: Publish package
         run: npx jsr publish
