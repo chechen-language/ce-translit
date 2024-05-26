@@ -1,3 +1,5 @@
+import translit from './translit.json';
+
 /**
  * This module provides a transliteration mapping and a function to apply transliteration
  * based on a predefined mapping from one script to another.
@@ -23,24 +25,7 @@
  * The keys are the original characters, and the values are the corresponding transliterated characters.
  * @constant {Object.<string, string>}
  */
-export const translitMap: { [key: string]: string } = {
-  'а': 'a', 'А': 'A', 'аь': 'ä', 'Аь': 'Ä', 'б': 'b', 'Б': 'B', 'в': 'v', 'В': 'V',
-  'г': 'g', 'Г': 'G', 'гӏ': 'ġ', 'Гӏ': 'Ġ', 'гІ': 'ġ', 'ГІ': 'Ġ', 'ц': 'c', 'Ц': 'C',
-  'цӏ': 'ċ', 'Цӏ': 'Ċ', 'цІ': 'ċ', 'ЦІ': 'Ċ', 'д': 'd', 'Д': 'D', 'е': 'e', 'Е': 'E',
-  'ё': 'ö', 'Ё': 'Ö', 'ж': 'ƶ', 'Ж': 'Ƶ', 'з': 'z', 'З': 'Z', 'и': 'i', 'И': 'I',
-  'й': 'y', 'Й': 'Y', 'к': 'k', 'К': 'K', 'кх': 'q', 'Кх': 'Q', 'кХ': 'q', 'КХ': 'Q',
-  'къ': 'q̇', 'Къ': 'Q̇', 'кЪ': 'q̇', 'КЪ': 'Q̇', 'кӏ': 'k̇', 'Кӏ': 'K̇', 'кІ': 'k̇', 'КІ': 'K̇',
-  'л': 'l', 'Л': 'L', 'м': 'm', 'М': 'M', 'н': 'n', 'Н': 'N', 'о': 'o', 'О': 'O',
-  'оь': 'ö', 'Оь': 'Ö', 'п': 'p', 'П': 'P', 'пӏ': 'ṗ', 'Пӏ': 'Ṗ', 'пІ': 'ṗ', 'ПІ': 'Ṗ',
-  'р': 'r', 'Р': 'R', 'с': 's', 'С': 'S', 'т': 't', 'Т': 'T', 'тӏ': 'ṫ', 'Тӏ': 'Ṫ',
-  'тІ': 'ṫ', 'ТІ': 'Ṫ', 'у': 'u', 'У': 'U', 'уь': 'ü', 'Уь': 'Ü', 'ф': 'f', 'Ф': 'F',
-  'х': 'x', 'Х': 'X', 'хь': 'ẋ', 'Хь': 'Ẋ', 'хЬ': 'ẋ', 'ХЬ': 'Ẋ', 'хӏ': 'h', 'Хӏ': 'H',
-  'хІ': 'h', 'ХІ': 'H', 'ч': 'ç', 'Ч': 'Ç', 'чӏ': 'ç̇', 'Чӏ': 'Ç̇', 'чІ': 'ç̇', 'ЧІ': 'Ç̇',
-  'ш': 'ş', 'Ш': 'Ş', 'щ': 'ş', 'Щ': 'Ş', 'ъ': 'ə', 'Ъ': 'Ə', 'ы': '', 'Ы': '', 'ь': '', 'Ь': '',
-  'э': 'e', 'Э': 'E', 'ю': 'yu', 'Ю': 'Yu', 'я': 'ya', 'Я': 'Ya', 'ӏ': 'j', 'Ӏ': 'J',
-  'ккх': 'qq', 'Ккх': 'Qq', 'кКх': 'qq', 'ККх': 'Qq', 'ККХ': 'QQ', 'ккъ': 'q̇q̇', 'Ккъ': 'Q̇q̇',
-  'кКъ': 'q̇q̇', 'ККъ': 'Q̇q̇', 'ККЪ': 'Q̇Q̇', 'юь': 'yü', 'Юь': 'Yü', 'яь': 'yä', 'Яь': 'Yä'
-};
+export const translitMap: { [key: string]: string } = translit;
 
 /**
  * Applies transliteration to a given word using the predefined transliteration mapping.
