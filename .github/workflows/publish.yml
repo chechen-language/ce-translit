@@ -21,10 +21,10 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install -g jest typescript
 
       - name: Run tests
-        run: npm test -- --coverage
+        run: jest --coverage
 
       - name: Publish package
         run: npx jsr publish
