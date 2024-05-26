@@ -30,7 +30,8 @@ jobs:
 
       - name: Reset repository
         id: reset_repo
-        run: git reset --hard HEAD
+        run: |
+          rm package.json package-lock.json
 
       - name: Publish package
         run: npx jsr publish --allow-dirty
