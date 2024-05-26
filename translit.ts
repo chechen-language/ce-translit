@@ -2,6 +2,8 @@
  * This module provides a transliteration mapping and a function to apply transliteration
  * based on a predefined mapping from one script to another.
  * 
+ * Demo: https://chechen-language.github.io/repositories/chechen-transliterator/?text=дӏахьаьдира
+ * 
  * @module translit
  * 
  * @example
@@ -13,7 +15,6 @@
  * 
  * console.log(translitMap);
  * 
- * Demo: https://chechen-language.github.io/repositories/chechen-transliterator/?text=дӏахьаьдира
  * ```
  */
 
