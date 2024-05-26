@@ -12,6 +12,8 @@
  * console.log(result); // 'djaẋädira'
  * 
  * console.log(translitMap);
+ * 
+ * Demo: https://chechen-language.github.io/repositories/chechen-transliterator/?text=дӏахьаьдира
  * ```
  */
 
@@ -111,7 +113,7 @@ export function applyToWord(word: string): string {
  * @example
  * ```js
  * const result = apply('Мелхо а, шуна цхьанна а тхайх бала ца бархьама, дийнахь а, буса а, къа а хьоьгуш, болх бора оха.');
- * console.log(result); // prints 'melxo ə, şuna cẋanna ə txayx bala ca barẋama, diynaẋ ə, busa ə, q̇a ə ẋöguş, bolx bora oxa.'
+ * console.log(result); // prints 'Melxo ə, şuna cẋanna ə txayx bala ca barẋama, diynaẋ ə, busa ə, q̇a ə ẋöguş, bolx bora oxa.'
  * ```
  */
 export function apply(text: string): string {
