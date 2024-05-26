@@ -33,5 +33,5 @@ jobs:
         run: git reset --hard HEAD
 
       - name: Publish package
-        run: npx jsr publish
+        run: npx jsr publish --allow-dirty
         if: ${{ steps.reset_repo.outcome == 'success' }}
