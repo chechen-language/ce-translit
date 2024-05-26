@@ -50,11 +50,12 @@ export function applyToWord(word: string): string {
       word.substring(i, i + 1),
     ]) {
       if (translitMap.hasOwnProperty(key)) {
+        const preLetter = i > 0 ? word[i - 1].toLowerCase() : '';
         // if key is 'ъ' and next character is 'е', 'ё', 'ю', or 'я'
         if ((key === 'ъ' || key === 'Ъ') && i + 1 < word.length && 'еёюяЕЁЮЯ'.includes(word[i + 1])) {
           // if 'к' is before 'ъ', transliterate 'ъ' as 'q̇'
-          if (i > 0 && word[i - 1].toLowerCase() === 'к') {
-            match = 'q̇';
+          if (i > 0 && (preLetter === 'к')) {
+            match = word[i - 1] === 'к' ? 'q̇' : 'Q̇';
           } else {
             match = ''; // else skip 'ъ'
           }
@@ -62,7 +63,8 @@ export function applyToWord(word: string): string {
           if (i === 0) {
             match = key === 'е' ? 'ye' : 'Ye'; // 'е' at the start of the word
           } else if (i > 0) {
-            if ((word[i - 1] === 'ъ' || word[i - 1] === 'Ъ') && (i < 2 || (word.substring(i - 2, i) !== 'къ' && word.substring(i - 2, i) !== 'Къ'))) {
+            const preConsonant = i > 1 ? word.substring(i - 2, i) : '';
+            if ((preLetter === 'ъ') && (i < 2 || (!['къ','Къ','кЪ','КЪ'].includes(preConsonant)))) {
               match = key === 'е' ? 'ye' : 'Ye'; // 'е' following 'ъ' that does not follow 'къ'
             } else {
               match = translitMap[key]; // Regular transliteration for 'е'
