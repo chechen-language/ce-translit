@@ -29,7 +29,9 @@ jobs:
         run: jest --coverage
 
       - name: Reset repository
+        id: reset_repo
         run: git reset --hard HEAD
 
       - name: Publish package
         run: npx jsr publish
+        if: ${{ steps.reset_repo.outcome == 'success' }}
