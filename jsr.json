@@ -1,5 +1,5 @@
 {
   "name": "@ce/transliteration",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "exports": "./translit.ts"
 }
