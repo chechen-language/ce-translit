@@ -21,12 +21,22 @@
  * @constant {Object.<string, string>}
  */
 export const translitMap: { [key: string]: string } = {
-  'а': 'a', 'аь': 'ä', 'б': 'b', 'в': 'v', 'г': 'g', 'гӏ': 'ġ', 'ц': 'c', 'цӏ': 'ċ', 'д': 'd',
-  'е': 'e', 'ё': 'ö', 'ж': 'ƶ', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'кх': 'q', 'къ': 'q̇',
-  'кӏ': 'k̇', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'оь': 'ö', 'п': 'p', 'пӏ': 'ṗ', 'р': 'r',
-  'с': 's', 'т': 't', 'тӏ': 'ṫ', 'у': 'u', 'уь': 'ü', 'ф': 'f', 'х': 'x', 'хь': 'ẋ', 'хӏ': 'h',
-  'ч': 'ç', 'чӏ': 'ç̇', 'ш': 'ş', 'щ': 'ş', 'ъ': 'ə', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya',
-  'ӏ': 'j', 'Ӏ': 'J', 'ккх': 'qq', 'ккъ': 'q̇q̇', 'юь': 'yü', 'яь': 'yä'
+  'а': 'a', 'А': 'A', 'аь': 'ä', 'Аь': 'Ä', 'б': 'b', 'Б': 'B', 'в': 'v', 'В': 'V',
+  'г': 'g', 'Г': 'G', 'гӏ': 'ġ', 'Гӏ': 'Ġ', 'гІ': 'ġ', 'ГІ': 'Ġ', 'ц': 'c', 'Ц': 'C',
+  'цӏ': 'ċ', 'Цӏ': 'Ċ', 'цІ': 'ċ', 'ЦІ': 'Ċ', 'д': 'd', 'Д': 'D', 'е': 'e', 'Е': 'E',
+  'ё': 'ö', 'Ё': 'Ö', 'ж': 'ƶ', 'Ж': 'Ƶ', 'з': 'z', 'З': 'Z', 'и': 'i', 'И': 'I',
+  'й': 'y', 'Й': 'Y', 'к': 'k', 'К': 'K', 'кх': 'q', 'Кх': 'Q', 'кХ': 'q', 'КХ': 'Q',
+  'къ': 'q̇', 'Къ': 'Q̇', 'кЪ': 'q̇', 'КЪ': 'Q̇', 'кӏ': 'k̇', 'Кӏ': 'K̇', 'кІ': 'k̇', 'КІ': 'K̇',
+  'л': 'l', 'Л': 'L', 'м': 'm', 'М': 'M', 'н': 'n', 'Н': 'N', 'о': 'o', 'О': 'O',
+  'оь': 'ö', 'Оь': 'Ö', 'п': 'p', 'П': 'P', 'пӏ': 'ṗ', 'Пӏ': 'Ṗ', 'пІ': 'ṗ', 'ПІ': 'Ṗ',
+  'р': 'r', 'Р': 'R', 'с': 's', 'С': 'S', 'т': 't', 'Т': 'T', 'тӏ': 'ṫ', 'Тӏ': 'Ṫ',
+  'тІ': 'ṫ', 'ТІ': 'Ṫ', 'у': 'u', 'У': 'U', 'уь': 'ü', 'Уь': 'Ü', 'ф': 'f', 'Ф': 'F',
+  'х': 'x', 'Х': 'X', 'хь': 'ẋ', 'Хь': 'Ẋ', 'хЬ': 'ẋ', 'ХЬ': 'Ẋ', 'хӏ': 'h', 'Хӏ': 'H',
+  'хІ': 'h', 'ХІ': 'H', 'ч': 'ç', 'Ч': 'Ç', 'чӏ': 'ç̇', 'Чӏ': 'Ç̇', 'чІ': 'ç̇', 'ЧІ': 'Ç̇',
+  'ш': 'ş', 'Ш': 'Ş', 'щ': 'ş', 'Щ': 'Ş', 'ъ': 'ə', 'Ъ': 'Ə', 'ы': '', 'Ы': '', 'ь': '', 'Ь': '',
+  'э': 'e', 'Э': 'E', 'ю': 'yu', 'Ю': 'Yu', 'я': 'ya', 'Я': 'Ya', 'ӏ': 'j', 'Ӏ': 'J',
+  'ккх': 'qq', 'Ккх': 'Qq', 'кКх': 'qq', 'ККх': 'Qq', 'ККХ': 'QQ', 'ккъ': 'q̇q̇', 'Ккъ': 'Q̇q̇',
+  'кКъ': 'q̇q̇', 'ККъ': 'Q̇q̇', 'ККЪ': 'Q̇Q̇', 'юь': 'yü', 'Юь': 'Yü', 'яь': 'yä', 'Яь': 'Yä'
 };
 
 /**
@@ -37,42 +47,43 @@ export const translitMap: { [key: string]: string } = {
  * 
  * @example
  * ```js
- * const result = apply('дӏахьаьдира');
+ * const result = applyToWord('дӏахьаьдира');
  * console.log(result); // prints 'djaẋädira'
  * ```
  */
-export function apply(word: string): string {
-  const w: string = word.toLowerCase();
+export function applyToWord(word: string): string {
   let result: string = '';
   let i: number = 0;
-  while (i < w.length) {
+  while (i < word.length) {
     let match: string | null = null;
     for (let key of [
-      w.substring(i, i + 3),
-      w.substring(i, i + 2),
-      w.substring(i, i + 1),
+      word.substring(i, i + 3),
+      word.substring(i, i + 2),
+      word.substring(i, i + 1),
     ]) {
       if (translitMap.hasOwnProperty(key)) {
-        if (key === 'ъ' && i + 1 < w.length && 'еёюя'.includes(w[i + 1])) {
-          if (i > 0 && w[i - 1] === 'к') {
+        // if key is 'ъ' and next character is 'е', 'ё', 'ю', or 'я'
+        if ((key === 'ъ' || key === 'Ъ') && i + 1 < word.length && 'еёюяЕЁЮЯ'.includes(word[i + 1])) {
+          // if 'к' is before 'ъ', transliterate 'ъ' as 'q̇'
+          if (i > 0 && word[i - 1].toLowerCase() === 'к') {
             match = 'q̇';
           } else {
-            match = ''; // 'ъ' is null before these characters unless after 'к'
+            match = ''; // else skip 'ъ'
           }
-        } else if (key === 'е') {
+        } else if (key === 'е' || key === 'Е') {
           if (i === 0) {
-            match = 'ye'; // 'е' at the start of the word
+            match = key === 'е' ? 'ye' : 'Ye'; // 'е' at the start of the word
           } else if (i > 0) {
-            if (w[i - 1] === 'ъ' && (i < 2 || w.substring(i - 2, i) !== 'къ')) {
-              match = 'ye'; // 'е' following 'ъ' that does not follow 'къ'
+            if ((word[i - 1] === 'ъ' || word[i - 1] === 'Ъ') && (i < 2 || (word.substring(i - 2, i) !== 'къ' && word.substring(i - 2, i) !== 'Къ'))) {
+              match = key === 'е' ? 'ye' : 'Ye'; // 'е' following 'ъ' that does not follow 'къ'
             } else {
               match = translitMap[key]; // Regular transliteration for 'е'
             }
           } else {
             match = translitMap[key];
           }
-        } else if (key === 'н' && i === w.length - 1) {
-          match = 'ŋ'; // 'н' at the end of the word
+        } else if ((key === 'н' || key === 'Н') && i === word.length - 1) {
+          match = key === 'н' ? 'ŋ' : 'Ŋ'; // 'н' at the end of the word
         } else {
           match = translitMap[key];
         }
@@ -84,9 +95,31 @@ export function apply(word: string): string {
       }
     }
     if (match === null) {
-      result += w[i]; // Add the character as is if no match was found
+      result += word[i]; // Add the character as is if no match was found
       i++; // Move to next character
     }
   }
   return result;
+}
+
+/**
+ * Applies transliteration to a given text, handling multiple words.
+ * 
+ * @param {string} text - The text to be transliterated.
+ * @returns {string} - The transliterated text.
+ * 
+ * @example
+ * ```js
+ * const result = apply('Мелхо а, шуна цхьанна а тхайх бала ца бархьама, дийнахь а, буса а, къа а хьоьгуш, болх бора оха.');
+ * console.log(result); // prints 'melxo ə, şuna cẋanna ə txayx bala ca barẋama, diynaẋ ə, busa ə, q̇a ə ẋöguş, bolx bora oxa.'
+ * ```
+ */
+export function apply(text: string): string {
+  // Replace any standalone Cyrillic 'а' with 'ə'
+  const regex = /(^|\s)а(?=\s|[.,!?;:]|$)/g;
+  const modifiedText = text.replace(regex, '$1ə');
+
+  const words = modifiedText.split(' ');
+  const transliteratedWords = words.map(word => applyToWord(word));
+  return transliteratedWords.join(' ');
 }
