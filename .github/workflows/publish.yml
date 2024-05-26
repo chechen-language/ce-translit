@@ -21,7 +21,9 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install -g jest typescript ts-jest
+        run: |
+          npm install -g jest typescript
+          npm install --save-dev ts-jest @types/jest
 
       - name: Run tests
         run: jest --coverage
