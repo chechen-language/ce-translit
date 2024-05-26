@@ -1,5 +1,4 @@
-// @ts-ignore
-import translit from './translit.json' with { type: 'json' };
+import translit from './translitMap';
 
 /**
  * This module provides a transliteration mapping and a function to apply transliteration
