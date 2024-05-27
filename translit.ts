@@ -4,12 +4,12 @@
  * 
  * Demo: https://chechen-language.github.io/repositories/chechen-transliterator/?text=дӏахьаьдира
  * 
- * @module translit
- * 
  * Special Handling:
  * - The character 'н' at the end of a word is generally transliterated as 'ŋ'.
  * - If the word is in the `blacklist`, 'н' is transliterated as 'n'.
  * - If the word is in the `unsureList`, 'н' is transliterated as 'ŋ[REPLACE]' to indicate manual review is needed.
+ * 
+ * @module translit
  * 
  * @example
  * ```js
