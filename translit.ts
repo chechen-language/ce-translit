@@ -89,15 +89,15 @@ export const translitMap: { [key: string]: string } = {
 
 /**
  * A list of words where 'н' at the end should not be replaced with 'ŋ'.
- * @constant {Array.<string>}
+ * @constant {Set<string>}
  */
-export const blacklist = new Set(["хан", "дин", "гӏан"]);
+export const blacklist: Set<string> = new Set(["хан", "дин", "гӏан"]);
 
 /**
  * A list of words that require manual review for the 'н' transliteration.
- * @constant {Array.<string>}
+ * @constant {Set<string>}
  */
-export const unsureList = new Set(["шун", "бен"]);
+export const unsureList: Set<string> = new Set(["шун", "бен"]);
 
 /**
  * Applies transliteration to a given word using the predefined transliteration mapping.
