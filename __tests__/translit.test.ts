@@ -67,6 +67,17 @@ describe('applyToWord', () => {
     expect(applyToWord('тхаН')).toBe('txaŊ');
   });
 
+  it('should handle words with "н" at the end and present in the blacklist', () => {
+    expect(applyToWord('хан')).toBe('xan');
+    expect(applyToWord('дин')).toBe('din');
+    expect(applyToWord('гӏан')).toBe('ġan');
+  });
+
+  it('should handle words with "н" at the end and present in the unsure list', () => {
+    expect(applyToWord('шун')).toBe('şuŋ[REPLACE]');
+    expect(applyToWord('бен')).toBe('beŋ[REPLACE]');
+  });
+
   it('should handle words without any special transliteration cases', () => {
     expect(applyToWord('нанас')).toBe('nanas');
   });
@@ -91,6 +102,11 @@ describe('apply', () => {
   it('should transliterate a text correctly', () => {
     const text = "еара еАра еарА еАрА ЕАра ЕАрА ЕАРА Еара";
     const expected = 'yeara yeAra yearA yeArA YEAra YEArA YEARA Yeara';
+    expect(apply(text)).toBe(expected);
+  });
+  it('should transliterate a text correctly', () => {
+    const text = "ТЕКСТЪЕ ТЕКСТЪЕ. ТЕКСТЪЕА";
+    const expected = 'TEKSTYE TEKSTYE. TEKSTYEA';
     expect(apply(text)).toBe(expected);
   });
 
