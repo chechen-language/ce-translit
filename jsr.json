@@ -1,5 +1,11 @@
 {
   "name": "@ce/transliteration",
   "version": "0.2.9",
-  "exports": "./translit.ts"
+  "exports": "./translit.ts",
+  "publish": {
+    "exclude": [
+      ".github",
+      "__tests__"
+    ]
+  }
 }
