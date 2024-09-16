@@ -1,12 +1,14 @@
 {
   "name": "@ce/transliteration",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "exports": "./translit.ts",
   "publish": {
     "exclude": [
       ".github",
       "jest.config.js",
-      "__tests__"
+      "__tests__",
+      "LICENSE",
+      "README.md"
     ]
   }
 }
